@@ -7,7 +7,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "prepare": "husky"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",
@@ -69,7 +70,10 @@
     "eslint": "9.x",
     "eslint-config-next": "14.2.5",
     "eslint-plugin-react": "^7.35.0",
+    "git-commit-msg-linter": "^5.0.8",
     "globals": "^15.9.0",
+    "husky": "^9.1.4",
+    "lint-staged": "^15.2.8",
     "postcss": "^8",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.5",
