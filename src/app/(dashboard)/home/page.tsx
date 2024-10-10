@@ -1,16 +1,29 @@
-import createUserAction from "@/actions/create-user.action";
+import { createUserActionHttp } from "@/actions/create-user.action";
 import { Input } from "@/components/ui/input";
+import { generateFormData } from "@/utils/generate-form-data";
 import React from "react";
+import { z } from "zod";
 export default function Home() {
   async function handleSubmit(formData: FormData) {
     "use server";
 
-    const formDataMock = new FormData();
-    formDataMock.append("image", "http://example.com/image.jpg");
-    formDataMock.append("name", "Paulo Henrique");
-    formDataMock.append("email", "ph2l322.alves@gmail.com");
+    const {
+      action: createUserAction,
+      method,
+      schema,
+      type,
+      url
+    } = await createUserActionHttp();
 
-    const response = await createUserAction(formDataMock);
+    const formDataTeste = generateFormData<z.infer<typeof schema>>({
+      email: "Plow2",
+      image: "",
+      name: "Pedro Plow2"
+    });
+    console.log("formDataTeste", formDataTeste);
+
+    const response = await createUserAction(formDataTeste);
+    // const response = await createUserAction(formDataMock);
     console.log("createUserAction response", response);
   }
 

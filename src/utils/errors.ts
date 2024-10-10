@@ -1,4 +1,4 @@
-export class CustomError extends Error {
+export class AppError extends Error {
   statusCode: number;
   code: string;
 
@@ -10,16 +10,9 @@ export class CustomError extends Error {
   }
 }
 
-export class UserAlreadyExistsError extends CustomError {
+export class UserAlreadyExistsError extends AppError {
   constructor() {
     super("User already exists.", 400, "USER_ALREADY_EXISTS");
     this.name = "UserAlreadyExistsError.";
-  }
-}
-
-export class InternalServerError extends CustomError {
-  constructor(message: string = "Internal Server Error.") {
-    super(message, 500, "INTERNAL_SERVER_ERROR");
-    this.name = "InternalServerError.";
   }
 }
