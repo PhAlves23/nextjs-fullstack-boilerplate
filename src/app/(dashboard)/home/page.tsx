@@ -7,23 +7,17 @@ export default function Home() {
   async function handleSubmit(formData: FormData) {
     "use server";
 
-    const {
-      action: createUserAction,
-      method,
-      schema,
-      type,
-      url
-    } = await createUserActionHttp();
+    const { action: createUserAction, schema } = await createUserActionHttp();
 
     const formDataTeste = generateFormData<z.infer<typeof schema>>({
-      email: "Plow2",
+      email: "plow2@gmail.com",
       image: "",
-      name: "Pedro Plow2"
+      name: ""
     });
+
     console.log("formDataTeste", formDataTeste);
 
     const response = await createUserAction(formDataTeste);
-    // const response = await createUserAction(formDataMock);
     console.log("createUserAction response", response);
   }
 
