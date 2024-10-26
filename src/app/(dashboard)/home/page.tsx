@@ -1,4 +1,4 @@
-import { createUserActionHttp } from "@/actions/create-user.action";
+import { createUserActionHttp } from "@/actions/user";
 import { Input } from "@/components/ui/input";
 import { generateFormData } from "@/utils/generate-form-data";
 import React from "react";

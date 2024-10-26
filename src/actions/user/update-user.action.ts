@@ -6,7 +6,6 @@ import { UpdateUserRequestSchema } from "@/schemas";
 import { updateUserService } from "@/services";
 import { parseFormData } from "@/utils";
 import { actionHandlerHOF } from "@/utils/action-handler-hof";
-import { ActionHttpType } from "@/types";
 
 export default async function updateUserAction(formData: FormData) {
   return await actionHandlerHOF<UserType>(async () => {
@@ -20,7 +19,7 @@ export default async function updateUserAction(formData: FormData) {
 }
 
 export async function updateUserActionHttp() {
-  const payload: ActionHttpType = {
+  const payload = {
     action: updateUserAction,
     method: "PUT",
     url: "/users",
