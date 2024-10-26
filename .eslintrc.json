@@ -1,6 +1,44 @@
 {
-  "extends": "next/core-web-vitals",
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:prettier/recommended"
+  ],
+  "ignorePatterns": [
+    "**/.husky/*",
+    "pnpm-lock.yaml",
+    "yarn.lock",
+    "package-lock.json"
+  ],
+  "parserOptions": {
+    "sourceType": "module",
+    "ecmaVersion": "latest"
+  },
+  "plugins": [
+    "simple-import-sort"
+  ],
   "rules": {
-    "no-useless-constructor": "off"
+    "simple-import-sort/imports": "error",
+    "simple-import-sort/exports": "error",
+    "prettier/prettier": [
+      "error",
+      {
+        "singleQuote": true,
+        "tabWidth": 2,
+        "printWidth": 80,
+        "jsxSingleQuote": true,
+        "bracketSpacing": true,
+        "bracketSameLine": false,
+        "trailingComma": "all",
+        "endOfLine": "auto",
+        "semi": false,
+        "singleAttributePerLine": true,
+        "embeddedLanguageFormatting": "auto",
+        "importOrder": [
+          "./src/*"
+        ],
+        "importOrderSeparation": true,
+        "importOrderSortSpecifiers": true
+      }
+    ]
   }
 }
